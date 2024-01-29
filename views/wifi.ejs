@@ -1,0 +1,29 @@
+<%- include('header.ejs') %>
+<center>
+	<div class="jumbotron">
+		<h1>WiFi Settings</h1>
+	</div>
+</center>
+
+<form class="form-horizontal well" method="POST">
+	<fieldset>
+		<legend>Wi-Fi Settings</legend>
+		<% for(s in conf) { %>
+			<div class="control-group">
+				<label class="control-label" for="<%= s %>"><%= help[s] !== undefined ? help[s].friendly : s %></label>
+				<div class="controls">
+					<input name="<%= s %>" id="<%= s %>" type="text" class="input-xlarge" style="width: 100%;" placeholder="<%= conf[s] %>" value="<%= conf[s] %>" />
+					<% if(help[s] !== undefined) { for(const h of help[s].help) { %>
+						<p class="help-block"><%= h %></p>
+					<% } } %>
+				</div>
+			</div>
+		<% } %>
+		
+		<div class="form-actions">
+			<a href="/milk">Cancel</a>
+			<input type="submit" class="btn btn-primary" value="Save Changes"/>
+		</div>
+	</fieldset>
+</form>
+<%- include('footer.ejs') %>

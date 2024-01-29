@@ -1,0 +1,19 @@
+<%- include('header.ejs') %>
+
+<center>
+	<div class="jumbotron">
+		<h1>Are you sure you would like to Reset Sequence?</h1>
+	</div>
+</center>
+
+<div>
+	<p><b>NOTE:</b> This affects the numbering of all future bins.</p>
+	<p><b>NOTE:</b> DO NOT USE THIS UNLESS YOU KNOW WHAT YOU ARE DOING!!</p>
+	<p><i>This should never be used during normal operation and incorrect use can have catastropic consequences on the database!</i></p>
+	<form method="POST">
+		<input type="text" name="start" id="start">
+		<a href="/milk/admin">Cancel</a>
+		<input type="submit" class="btn btn-danger" value="Submit">
+	</form>
+</div>
+<%- include('footer.ejs') %>

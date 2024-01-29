@@ -1,0 +1,7 @@
+<% var f = getFreeSpace() %>
+<div class="pull-left" style="margin-top: -14px">
+	<p><%= f.avail_nice + " available / " + f.total_nice + " total" %></p>
+	<div class="progress progress-info progress-striped">
+		<div class="bar" style="width: <%= (1 - f.avail / f.total) * 100 %>%;"></div>
+	</div>
+</div>

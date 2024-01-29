@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title><%= name === null ? id : id + " - " + name %></title>
+		<style>
+			table {
+				width: 100%;
+				table-layout: fixed;
+			}
+			table, th, td {
+				border: 1px solid black;
+			}
+			img {
+				width: 85%;
+				image-rendering: pixelated;
+				image-rendering: -moz-crisp-edges;
+			}
+		</style>
+	</head>
+	<body>
+		<table>
+			<tr>
+				<td>
+					<div style="width: 100%">
+						<div style="display: flex; justify-content: center;">
+							<h1 style="margin: 0%; overflow: hidden;"><%= name === null ? "\u00A0" : name %></h1>
+						</div>
+						<div style="display: flex;justify-content: space-around;">
+							<h1 style="margin: unset;"><%= id %></h1>
+							<h1 style="margin: unset;"><%= id %></h1>
+						</div>
+						<div style="display: flex; justify-content: center;">
+							<img src="/milk/qr/<%= id %>.png"/>
+						</div>
+						<div style="display: flex;justify-content: space-around;">
+							<h1 style="margin: unset;"><%= id %></h1>
+							<h1 style="margin: unset;"><%= id %></h1>
+						</div>
+						<div style="display: flex; justify-content: center;">
+							<h1 style="margin: 0%; overflow: hidden;"><%= name === null ? "\u00A0" : name %></h1>
+						</div>
+					</div>
+				</td>
+				<td>
+					<div style="width: 100%">
+						<div style="display: flex; justify-content: center;">
+							<h1 style="margin: 0%; overflow: hidden;"><%= name === null ? "\u00A0" : name %></h1>
+						</div>
+						<div style="display: flex;justify-content: space-around;">
+							<h1 style="margin: unset;"><%= id %></h1>
+							<h1 style="margin: unset;"><%= id %></h1>
+						</div>
+						<div style="display: flex; justify-content: center;">
+							<img src="/milk/qr/<%= id %>.png"/>
+						</div>
+						<div style="display: flex;justify-content: space-around;">
+							<h1 style="margin: unset;"><%= id %></h1>
+							<h1 style="margin: unset;"><%= id %></h1>
+						</div>
+						<div style="display: flex; justify-content: center;">
+							<h1 style="margin: 0%; overflow: hidden;"><%= name === null ? "\u00A0" : name %></h1>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div style="width: 100%">
+						<div style="display: flex; justify-content: center;">
+							<h1 style="margin: 0%; overflow: hidden;"><%= name === null ? "\u00A0" : name %></h1>
+						</div>
+						<div style="display: flex;justify-content: space-around;">
+							<h1 style="margin: unset;"><%= id %></h1>
+							<h1 style="margin: unset;"><%= id %></h1>
+						</div>
+						<div style="display: flex; justify-content: center;">
+							<img src="/milk/qr/<%= id %>.png"/>
+						</div>
+						<div style="display: flex;justify-content: space-around;">
+							<h1 style="margin: unset;"><%= id %></h1>
+							<h1 style="margin: unset;"><%= id %></h1>
+						</div>
+						<div style="display: flex; justify-content: center;">
+							<h1 style="margin: 0%; overflow: hidden;"><%= name === null ? "\u00A0" : name %></h1>
+						</div>
+					</div>
+				</td>
+				<td>
+					<div style="width: 100%">
+						<div style="display: flex; justify-content: center;">
+							<h1 style="margin: 0%; overflow: hidden;"><%= name === null ? "\u00A0" : name %></h1>
+						</div>
+						<div style="display: flex;justify-content: space-around;">
+							<h1 style="margin: unset;"><%= id %></h1>
+							<h1 style="margin: unset;"><%= id %></h1>
+						</div>
+						<div style="display: flex; justify-content: center;">
+							<img src="/milk/qr/<%= id %>.png"/>
+						</div>
+						<div style="display: flex;justify-content: space-around;">
+							<h1 style="margin: unset;"><%= id %></h1>
+							<h1 style="margin: unset;"><%= id %></h1>
+						</div>
+						<div style="display: flex; justify-content: center;">
+							<h1 style="margin: 0%; overflow: hidden;"><%= name === null ? "\u00A0" : name %></h1>
+						</div>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

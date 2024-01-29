@@ -1,0 +1,53 @@
+<%- include('header.ejs') %>
+<center>
+	<div class="jumbotron">
+		<h1>Register New User</h1>
+	</div>
+</center>
+<div class="span9 offset1">
+	<form class="well form-search" method="POST">
+		<fieldset>
+			<legend>New User</legend>
+			<div class="control-group">
+				<label class="control-label" for="username">New Username</label>
+				<div class="controls">
+					<input type="text" class="input-xlarge" name="username" id="username">
+					<p class="help-block">Set a new username</p>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="password">New Password</label>
+				<div class="controls">
+					<input type="password" class="input-xlarge" name="password" id="password">
+					<p class="help-block">Set a new password</p>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="education">Education</label>
+				<div class="controls">
+					<input type="text" class="input-xlarge" name="education" id="education">
+					<p class="help-block">The highest level of education you have completed (e.x. MS, BS, etc.)</p>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="jobExp">Job Expierence (years)</label>
+				<div class="controls">
+					<input type="text" class="input-xlarge" name="jobExp" id="jobExp">
+					<p class="help-block">The number of years of professional job expierence (e.x. 1.3, 0, etc.)</p>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="resume">Resume</label>
+				<div class="controls">
+					<textarea class="input-xlarge" name="resume" id="resume" style="width: 100%" rows="3"></textarea>
+					<p class="help-block">Your resume (max. 500 characters)</p>
+				</div>
+			</div>
+			<div class="form-actions">
+				<button type="reset" class="btn">Cancel</button>
+				<button type="submit" class="btn btn-primary">Register</button>
+			</div>
+		</fieldset>
+	</form>
+</div>
+<%- include('footer.ejs') %>

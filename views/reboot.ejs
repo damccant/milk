@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MILK reboot</title>
+		<script>
+			function redirect() {
+				location = "/milk";
+			}
+			function pause_and_redirect() {
+				setTimeout(redirect, 20000);
+			}
+		</script>
+	</head>
+	<body onload="pause_and_redirect()">
+		<h1>MILK is now rebooting... Please be patient, this could take a few minutes.</h1>
+		<p>You should be redirected back to the home page automatically once the reboot is complete.  If not, click <a href="/milk">here</a>.</p>
+	</body>
+</html>

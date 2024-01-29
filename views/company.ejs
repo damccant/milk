@@ -1,0 +1,41 @@
+<%- include('header.ejs') %>
+<center>
+	<div class="jumbotron">
+		<h1><%= companyname %></h1>
+	</div>
+</center>
+<table class='table table-bordered table-striped table-hover'>
+	<tbody>
+		<% for(var i=0; i < jobs.rows.length; i++) { %>
+			<tr>
+				<th>
+					<a href="/job/<%= jobs.rows[i].jobid %>">
+						<%= jobs.rows[i].title %>
+					</a>
+				</th>
+				<th>
+					<%= jobs.rows[i].location %>
+				</th>
+				<th>
+					<!-- <%= "$" + jobs.rows[i].salary_min + " - $" + jobs.rows[i].salary_max %> -->
+					<% const fmt = new Intl.NumberFormat("en-US", {style: "currency", currency: "USD", minimumFractionDigits: 2}); %>
+					<%= fmt.format(jobs.rows[i].salary_min) + " - " + fmt.format(jobs.rows[i].salary_max) %>
+				</th>
+				<th>
+					<a href="/apply/<%= jobs.rows[i].jobid %>" > Apply </a>
+				</th>
+			</tr>
+			<tr>
+				<td colspan="3">
+					<%= jobs.rows[i].description %>
+				</td>
+			</tr>
+		<% } %>
+	</tbody>
+</table>
+<div>
+	<ul class="pager">
+		<li class="previous"><a href="/company">← Back to Company List</a></li>
+	</ul>
+</div>
+<%- include('footer.ejs') %>

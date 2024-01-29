@@ -1,0 +1,40 @@
+<%- include('header.ejs') %>
+
+<center>
+	<div class="jumbotron">
+		<h1>Are you sure you would like to <%= action %>?</h1>
+	</div>
+</center>
+
+<div>
+	<% for(const n of notes) { %>
+		<p><b>NOTE:</b> <%= n %></p>
+	<% } %>
+	<% if(confirm_destructive !== undefined) { %>
+		<script>
+			function doSubmit() {
+				if(document.getElementById('confirm').value.trim().toLowerCase() != "<%= confirm_destructive %>".trim().toLowerCase()) {
+					alert("Please type \"<%= confirm_destructive %>\" into the box to confirm your action!");
+					return false;
+				} else {
+					document.getElementById("theForm").submit();
+				}
+			}
+		</script>
+		<p>To confirm and prevent accidents, please type</p>
+		<q><%= confirm_destructive %></q>
+		<p>into the textbox below, and then click <%= action %>.</p>
+		<input id="confirm" />
+		<form method="POST" id="theForm">
+			<input type="hidden" name="hidden_submit" value="<%= action %>">
+		</form>
+		<a href="/milk/admin">Cancel</a>
+		<button onclick="doSubmit()" class="btn btn-danger"><%= action %></button>
+	<% } else { %>
+		<form method="POST">
+			<a href="/milk/admin">Cancel</a>
+			<input type="submit" class="btn btn-danger" value="<%= action %>">
+		</form>
+	<% } %>
+</div>
+<%- include('footer.ejs') %>

@@ -1,0 +1,18 @@
+<%- include('header.ejs') %>
+<center>
+	<div class="jumbotron">
+		<h1>Admin Page</h1>
+	</div>
+</center>
+<div>
+	<p>This is the admin page, do not mess with any of this unless you know what you are doing!</p>
+    <p>Welcome to the ~DANGER ZONE~ <a href="/milk">Back to Safety</a></p>
+    <ul>
+        <li><a href="/milk/admin/reset">Reset MILK and delete all data</a></li>
+        <li><a href="/milk/admin/reformat">Reformat MILK's internal storage (permanently deletes all data!)</a></li>
+        <li><a href="/milk/admin/poweroff">Shutdown MILK</a></li>
+        <li><a href="/milk/admin/reboot">Reboot MILK</a></li>
+        <li><a href="/milk/admin/sequence">Reset Sequence</a></li>
+    </ul>
+</div>
+<%- include('footer.ejs') %>

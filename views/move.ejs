@@ -1,0 +1,22 @@
+<%- include('header.ejs') %>
+<center>
+	<div class="jumbotron">
+		<h1>Move Bin Barcode</h1>
+	</div>
+</center>
+
+<form class="form-horizontal well" method="POST">
+	<fieldset>
+		<legend>Move Bin</legend>
+		<label for="old">Old ID#</label>
+		<input type="text" name="old" id="old">
+		<span>--&gt;</span>
+		<label for="new">New ID#</label>
+		<input type="text" name="new" id="new">
+		<div class="form-actions">
+			<a href="/milk">Cancel</a>
+			<button class="btn btn-primary" onclick="moveBin()">Move Bin</button>
+		</div>
+	</fieldset>
+</form>
+<%- include('footer.ejs') %>

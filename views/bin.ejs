@@ -1,0 +1,86 @@
+<%- include('header.ejs') %>
+<script>
+	function deleteImage(id, path) {
+		if(!confirm("Are you sure you would like to permanently delete this image?"))
+			return;
+		var xhr = new XMLHttpRequest();
+		xhr.open('POST', path);
+		xhr.addEventListener('load', (event) => {
+			if(xhr.status === 200) {
+				const elem = document.getElementById(id);
+				if(elem !== null) elem.remove();
+			}
+		});
+		xhr.addEventListener('error', (event) => {
+			alert("Failed to delete image! :(");
+		})
+		xhr.send();
+		// TODO: actually delete the image
+	}
+	function deleteBin() {
+		if(!confirm("Are you sure you would like to permanently delete this bin and ALL associated images?"))
+			return;
+		var xhr = new XMLHttpRequest();
+		xhr.open('POST', '/milk/delete/<%= bin.id %>');
+		xhr.addEventListener('load', (event) => {
+			if(xhr.status === 200 || xhr.status === 201) {
+				alert("Bin ID# <%= bin.id %> successfully deleted.");
+				location = '/milk'
+			}
+		});
+		xhr.addEventListener('error', (event) => {
+			alert("Failed to delete bin!");
+		});
+		xhr.send();
+	}
+</script>
+<center>
+	<div class="jumbotron">
+		<span>
+			<h1><%= bin.id %></h1>
+			<a href="/milk/print/<%= bin.id %>">Printable barcode</a>
+		</span>
+	</div>
+</center>
+<!-- <img src=<%= bin.qr %> /> -->
+<div class="span9 offset1" style="margin-top: 20px;">
+	<% for(const i of bin.imgs) { %>
+		<div id="<%= i.id %>">
+			<img src=<%= i.path %> />
+			<button onclick="deleteImage('<%= i.id %>', '<%= i.path %>')" style="position: absolute;margin-left: -27;">X</button>
+		</div>
+	<% } %>
+</div>
+
+<form class="form-horizontal well" method="POST" enctype="multipart/form-data">
+	<fieldset>
+		<legend>Data for ID# <%= bin.id %></legend>
+		<div class="control-group">
+			<label class="control-label" for="name">Bin Name:</label>
+			<div class="controls">
+				<input name="name" id="name" type="text" class="input-xlarge" style="width: 100%;" placeholder="Bin Name" value="<%= bin.name %>" />
+				<p class="help-block">The name of the bin (i.e., short 3-5 word description of contents)</p>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="upload">Upload more images:</label>
+			<div class="controls">
+				<input id="upload" name="upload" type="file" style="width: 100%;" multiple>
+				<p class="help-block">Note, this will add to (not replace) existing images.  Use the above delete buttons to remove the existing images.</p>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="dscr">Description:</label>
+			<div class="controls">
+				<textarea name="dscr" id="dscr" class="input-xlarge" rows="3"  style="width: 100%;" placeholder="1 * chevre cosa"><%= bin.dscr %></textarea>
+				<p class="help-block">A longer, detailed description of the contents of the bin</p>
+			</div>
+		</div>
+		
+		<div class="form-actions">
+			<input type="submit" class="btn btn-primary" value="Save Changes"/>
+			<button class="btn btn-danger" onclick="deleteBin()">Delete</button>
+		</div>
+	</fieldset>
+</form>
+<%- include('footer.ejs') %>

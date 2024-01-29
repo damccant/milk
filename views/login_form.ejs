@@ -1,0 +1,25 @@
+<% user = login.getLoggedUser(session); if (user === undefined) { %>
+	<div class="span4">
+		<form class="well form-search" method="POST" action="/login">
+			<% if(locals.redir_url !== undefined) { %>
+				<input type="hidden" name="redir_url" value="<%=redir_url%>">
+			<% } %>
+			<input type="text" name="username" class="input-small" placeholder="Username">
+			<input type="password" name="password" class="input-small" placeholder="Password">
+			<button type="submit" class="btn btn-primary">Login</button>
+			<div>
+				No account yet? Register <a href="/register">here</a>.
+			</div>
+		</form>
+	</div>
+<% } else { %>
+	<div class="span4">
+		<form class="well form-search" method="POST" action="/logout">
+			<% if(locals.redir_url !== undefined) { %>
+				<input type="hidden" name="redir_url" value="<%=redir_url%>">
+			<% } %>
+			<span>Hello, <%=user%>!</span>
+			<button type="submit" class="btn">Logout</button>
+		</form>
+	</div>
+<% } %>

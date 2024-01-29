@@ -1,0 +1,42 @@
+<%- include('header.ejs') %>
+<center>
+	<div class="jumbotron">
+		<span>
+			<h1>Hello, <%= userInfo.userid %>!</h1>
+			<form method="POST" action="/logout">
+				<button type="submit" class="btn">Logout</button>
+			</form>
+		</span>
+	</div>
+</center>
+<div class="span9 offset1">
+	<form class="well form-search" method="GET" action="/change_pass">
+		<fieldset>
+			<legend>Change Password</legend>
+			<div class="control-group">
+				<label class="control-label" for="password">New Password</label>
+				<div class="controls">
+					<input type="password" class="input-xlarge" name="password" id="password">
+					<p class="help-block">Set a new password</p>
+				</div>
+			</div>
+			<div class="form-actions">
+				<button type="reset" class="btn">Cancel</button>
+				<button type="submit" class="btn btn-primary">Save Changes</button>
+			</div>
+		</fieldset>
+	</form>
+	<form class="well form-search" method="POST" action="/delete_user">
+		<fieldset>
+			<legend>Delete Account</legend>
+			<div class="form-actions">
+				<button type="submit" class="btn btn-danger">
+					<i class="icon-warning-sign icon-white"></i>
+					 Delete Account
+				</button>
+				<p>NOTE: This action cannot be undone!</p>
+			</div>
+		</fieldset>
+	</form>
+</div>
+<%- include('footer.ejs') %>

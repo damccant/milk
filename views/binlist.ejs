@@ -1,0 +1,30 @@
+<%- include('header.ejs') %>
+<center>
+	<div class="jumbotron">
+		<h1>Bin List (<%= results.rows.length %> bins)</h1>
+	</div>
+</center>
+<table class='table table-bordered table-striped table-hover'>
+	<tbody>
+		<% for(const r of results.rows) { %>
+			<tr>
+				<th>
+					<a href="/milk/bin/<%= r.binid %>">
+						<%= r.binid %>
+					</a>
+				</th>
+				<th>
+					<a href="/milk/bin/<%= r.binid %>">
+						<%= r.name %>
+					</a>
+				</th>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<%= r.dscr %><%= r.dscr.length >= 100 ? '...' : '' %>
+				</td>
+			</tr>
+		<% } %>
+	</tbody>
+</table>
+<%- include('footer.ejs') %>

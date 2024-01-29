@@ -1,0 +1,38 @@
+<%- include('header.ejs') %>
+<center>
+	<div class="jumbotron">
+		<h1>Create New Bin</h1>
+	</div>
+</center>
+<form class="form-horizontal well" method="POST" enctype="multipart/form-data">
+    <p>For advanced options, click <a href="/milk/create_id">here</a>.  <i>(You will lose all unsaved progress)</i></p>
+    <fieldset>
+        <legend>Data for New Bin</legend>
+        <div class="control-group">
+            <label class="control-label" for="name">Bin Name:</label>
+            <div class="controls">
+                <input name="name" id="name" type="text" class="input-xlarge" style="width: 100%;" placeholder="Bin Name" />
+                <p class="help-block">The name of the bin (i.e., short 3-5 word description of contents)</p>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="upload">Upload images:</label>
+            <div class="controls">
+                <input id="upload" name="upload" type="file" style="width: 100%;" multiple>
+                <p class="help-block">Upload images here.</p>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="dscr">Description:</label>
+            <div class="controls">
+                <textarea name="dscr" id="dscr" class="input-xlarge" rows="3" style="width: 100%;" placeholder="1 * chevre cosa"></textarea>
+                <p class="help-block">A longer, detailed description of the contents of the bin</p>
+            </div>
+        </div>
+        
+        <div class="form-actions">
+            <input type="submit" class="btn btn-primary" value="Save Changes"/>
+        </div>
+    </fieldset>
+</form>
+<%- include('footer.ejs') %>
