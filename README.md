@@ -1,4 +1,4 @@
-# MILK (Master Inventory List Keeper)
+# MILK (Main Inventory List Keeper)
 
 Uses Node.JS and Express to start a webserver on port 8080.
 
