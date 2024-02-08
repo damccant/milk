@@ -1,5 +1,7 @@
 # MILK (Main Inventory List Keeper)
 
+*NOTE: A PostgreSQL server is required! Fill out the details of the database in `pool.js`*
+
 Uses Node.JS and Express to start a webserver on port 8080.
 
 To install all dependencies, run `npm install`
